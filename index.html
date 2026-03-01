@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PACIXP - Pacific Islands Internet Exchange</title>
+    <style>
+        :root {
+            --primary-color: #2b5f2b; /* Dark Green from text */
+            --secondary-color: #ffea5e; /* Yellow from slides */
+            --accent-color: #004b87; /* Deep ocean blue */
+            --text-color: #333;
+            --bg-light: #fafafa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-light);
+        }
+
+        header {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            color: var(--secondary-color);
+        }
+
+        .logo p {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        #hero {
+            /* Changed to a global digital network/connectivity image with a dark tech overlay */
+            background: linear-gradient(rgba(0, 35, 75, 0.85), rgba(20, 65, 40, 0.85)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        #hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        #hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--accent-color);
+            padding: 14px 35px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            background-color: #e6d24c;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.3);
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+        }
+
+        /* Two Column Layout */
+        .flex-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .flex-col {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .flex-col h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        /* Stats Section */
+        #impact {
+            background-color: var(--secondary-color);
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-box {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            border-top: 5px solid var(--primary-color);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .stat-box h4 {
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        /* Involvement */
+        #get-involved {
+            background-color: var(--bg-light);
+        }
+
+        .involve-cards {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .involve-card {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            padding: 25px;
+            border-left: 4px solid var(--primary-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .involve-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        @media(max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            #hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                <h1>PACIXP</h1>
+                <p>Pacific Islands Internet Exchange Inc.</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#impact">Impact</a></li>
+                    <li><a href="#benefits">Benefits</a></li>
+                    <li><a href="#get-involved">Get Involved</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <h2>Transforming Internet Connectivity Across the Pacific</h2>
+            <p>Driving digital transformation and economic growth by establishing a continental-scale Internet Exchange. Registered in New Zealand as a non-profit organization promoting digital sovereignty.</p>
+            <a href="#get-involved" class="btn">Join the Initiative</a>
+        </div>
+    </section>
+
+    <!-- The Problem & Solution Section -->
+    <section id="about" class="container">
+        <h2 class="section-title">Bridging the Digital Divide</h2>
+        <div class="flex-row">
+            <div class="flex-col">
+                <h3>The Challenge</h3>
+                <p>Currently, traffic routing among Pacific Island nations is highly inefficient. Neighboring islands often reroute through Australia, Hawaii, or North America. This reliance on distant routing incurs high latencies (180-250ms) and significant transit costs, burdening ISPs and hampering regional digital transformation.</p>
+            </div>
+            <div class="flex-col">
+                <h3>The PACIXP Solution</h3>
+                <p>PACIXP is establishing distributed, industry-standard Internet Exchange Points (IXPs) initially targeting <strong>Samoa and Fiji</strong>. By activating underutilized submarine cable capacity and providing direct peering between networks, we are eliminating unnecessary transit routes and fostering robust local internet ecosystems.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expected Impact (Stats) -->
+    <section id="impact">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--primary-color);">Expected Regional Impact</h2>
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <h4>< 80ms</h4>
+                    <p><strong>Reduced Round-Trip Times</strong></p>
+                    <p>Dropping from current latencies of 180-250ms for a faster, more reliable user experience.</p>
+                </div>
+                <div class="stat-box">
+                    <h4>> 35%</h4>
+                    <p><strong>Traffic Localization</strong></p>
+                    <p>Keeping local traffic local, reducing dependency on overseas routes and enhancing resilience.</p>
+                </div>
+                <div class="stat-box">
+                    <h4>$1.2M - $1.8M</h4>
+                    <p><strong>Annual Economic Savings</strong></p>
+                    <p>Projected USD savings in transit costs, stimulating local economies and technical job creation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="container">
+        <h2 class="section-title">Key Benefits for Participants</h2>
+        <div class="flex-row">
+            <div class="flex-col">
+                <h3>For Internet Service Providers (ISPs)</h3>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li style="margin-bottom: 10px;"><strong>Reduced Transit Costs:</strong> Achieve over 25% savings on transit costs, enabling more competitive pricing and improved service offerings.</li>
+                    <li style="margin-bottom: 10px;"><strong>Improved Performance:</strong> Provide faster and more reliable internet access, fostering customer satisfaction, loyalty, and growth.</li>
+                </ul>
+            </div>
+            <div class="flex-col">
+                <h3>For Content Providers</h3>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li style="margin-bottom: 10px;"><strong>Enhanced User Experience:</strong> Lower latency translates to quicker loading times and seamless streaming.</li>
+                    <li style="margin-bottom: 10px;"><strong>Reduced Delivery Costs:</strong> Establish a direct presence in Pacific markets without the need for multiple independent deployments.</li>
+                    <li style="margin-bottom: 10px;"><strong>Direct Market Access:</strong> Effectively cater to local audiences and meet regional preferences with greater market penetration.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Involved Section -->
+    <section id="get-involved">
+        <div class="container">
+            <h2 class="section-title">Ways to Get Involved</h2>
+            <p style="text-align: center; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Backed by mentorship and support from APNIC, ISOC, Internet Association of Australia, and the New Zealand Internet Exchange. Now is the pivotal time to enhance internet connectivity and help shape a collaborative digital future.
+            </p>
+            <div class="involve-cards">
+                <div class="involve-card">
+                    <h3 style="color: var(--primary-color); margin-bottom: 10px;">Join as a Peering Participant</h3>
+                    <p>Connect your networks directly to PACIXP to eliminate transit routes, improve operational performance, and drastically reduce routing costs.</p>
+                </div>
+                <div class="involve-card">
+                    <h3 style="color: var(--primary-color); margin-bottom: 10px;">Contribute Technical Expertise</h3>
+                    <p>Help us build a robust regional internet infrastructure by joining our inclusive governance structure representing diverse Pacific nations.</p>
+                </div>
+                <div class="involve-card">
+                    <h3 style="color: var(--primary-color); margin-bottom: 10px;">Provide Infrastructure Support</h3>
+                    <p>Host PACIXP equipment, provide connectivity, or share technical resources vital to the physical establishment of the IXP.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3 style="margin-bottom: 15px; color: var(--secondary-color);">Stay Connected with PACIXP</h3>
+            <p>Your questions and support are vital as we strive to enhance internet connectivity across the Pacific Islands.</p>
+            <p style="margin-top: 25px; font-size: 0.9rem;">&copy; 2024 Pacific Islands Internet Exchange Incorporated. A registered non-profit legal entity.</p>
+            <p style="font-size: 0.8rem; margin-top: 5px; color: #ccc;">Supported by APNIC, ISOC, IAA, and NZIX.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
