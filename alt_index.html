@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PACIXP - Pacific Islands Internet Exchange</title>
+    
+    <!-- Import Google Fonts as per the Style Guide -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Snippet from Guide */
+        :root {
+            /* Brand Colors */
+            --color-navy: #0B1829;
+            --color-teal: #2BC0B5;
+            --color-blue: #0073B1;
+            --color-gold: #FFCE60;
+            --color-coral: #FF6B6B;
+            --color-text-main: #333333;
+            --color-white: #FFFFFF;
+            
+            /* Backgrounds */
+            --color-bg-light: #F8F9FA;
+
+            /* Fonts */
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+
+            /* Spacing & Borders */
+            --radius-button: 50px; /* Pill shape */
+            --radius-card: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text-main);
+            background-color: var(--color-bg-light);
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        h1, h2, h3, .btn {
+            font-family: var(--font-heading);
+            color: var(--color-navy);
+        }
+
+        /* Type Hierarchy Implementations */
+        h2 {
+            color: var(--color-blue);
+            font-weight: 700;
+        }
+
+        h3 {
+            color: var(--color-teal);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: var(--color-white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--color-navy);
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--color-teal);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--color-navy);
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            border-bottom: 2px solid var(--color-teal);
+            color: var(--color-teal);
+        }
+
+        /* Buttons */
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--color-teal);
+            color: var(--color-white);
+            border-radius: var(--radius-button);
+            padding: 12px 28px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-blue);
+            color: var(--color-white);
+        }
+
+        /* Hero Section */
+        #hero {
+            /* Using Navy overlay on the tech background */
+            background: linear-gradient(rgba(11, 24, 41, 0.85), rgba(11, 24, 41, 0.9)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: var(--color-white);
+            padding: 100px 0 0 0; /* Removed bottom padding for the swoosh */
+            text-align: center;
+            position: relative;
+        }
+
+        #hero h1 {
+            font-size: 3rem;
+            color: var(--color-white);
+            margin-bottom: 20px;
+        }
+
+        #hero p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            color: #E2E8F0;
+        }
+
+        /* The Swoosh */
+        .swoosh-container {
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: translateY(2px);
+        }
+
+        .swoosh-container svg {
+            position: relative;
+            display: block;
+            width: calc(130% + 1.3px);
+            height: 120px;
+            transform: translateX(-15%); /* Centering the wave */
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+        }
+
+        /* Layout Grids & Cards */
+        .grid-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--color-white);
+            padding: 30px;
+            border-radius: var(--radius-card);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-bottom: 4px solid var(--color-gold); /* Island Gold Accent */
+        }
+
+        .stat-box {
+            text-align: center;
+            background: var(--color-white);
+            padding: 30px;
+            border-radius: var(--radius-card);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: var(--color-teal);
+        }
+
+        .stat-box h4 {
+            font-size: 2rem;
+            color: var(--color-blue);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-navy);
+            color: var(--color-white);
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        footer h2 {
+            color: var(--color-gold); /* Used gold for CTA highlight */
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            color: #A0AEC0;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        @media(max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            #hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                <h1>PACIXP<span>.</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#impact">Impact</a></li>
+                    <li><a href="#benefits">Benefits</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container" style="padding-bottom: 60px;">
+            <h1>Transforming Connectivity in the Pacific</h1>
+            <p>Driving digital transformation and economic growth by establishing a continental-scale Internet Exchange. Registered in New Zealand as a non-profit organization promoting digital sovereignty.</p>
+            <a href="#about" class="btn-primary">Get Involved</a>
+        </div>
+        
+        <!-- The "Swoosh" Layered Motif (Gold -> Blue -> Teal -> White Background) -->
+        <div class="swoosh-container">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <!-- Island Gold Wave -->
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="#FFCE60" opacity="0.8"></path>
+                <!-- Ocean Blue Wave -->
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5V0Z" fill="#0073B1" opacity="0.9"></path>
+                <!-- Reef Teal Wave -->
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="#2BC0B5"></path>
+                <!-- Base white to blend with next section -->
+                <path d="M1200,120H0V80.37c63.74,27.18,131.52,47.88,203.85,41.4,107.82-9.67,196.22-68.42,304-75.11,100.86-6.26,192.41,38.64,291.64,57.14C897.66,122.18,995.15,113,1093,89.92c36.29-8.54,72-19.92,107-32.33Z" fill="#F8F9FA"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- The Problem & Solution Section -->
+    <section id="about" class="container">
+        <h2 class="section-title">Bridging the Digital Divide</h2>
+        <div class="grid-row">
+            <div class="card">
+                <h3>The Challenge</h3>
+                <p>Traffic routing among Pacific Island nations is highly inefficient. Neighboring islands often reroute through Australia, Hawaii, or North America. This reliance incurs high latencies (180-250ms) and significant transit costs, burdening ISPs and hampering regional digital transformation.</p>
+            </div>
+            <div class="card">
+                <h3>The Solution</h3>
+                <p>PACIXP is establishing distributed, industry-standard Internet Exchange Points initially targeting <strong>Samoa and Fiji</strong>. By activating underutilized submarine cable capacity and providing direct peering, we are eliminating unnecessary transit routes and fostering local ecosystems.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expected Impact (Stats) -->
+    <section id="impact" class="container">
+        <h2 class="section-title">Expected Regional Impact</h2>
+        <div class="grid-row">
+            <div class="stat-box">
+                <h4>< 80ms</h4>
+                <p style="font-weight: 600; color: var(--color-navy);">Reduced Latency</p>
+                <p style="font-size: 0.9rem; margin-top: 10px;">Dropping from current latencies of 180-250ms for a faster user experience.</p>
+            </div>
+            <div class="stat-box">
+                <h4>> 35%</h4>
+                <p style="font-weight: 600; color: var(--color-navy);">Traffic Localization</p>
+                <p style="font-size: 0.9rem; margin-top: 10px;">Keeping local traffic local, enhancing internet resilience in the Pacific.</p>
+            </div>
+            <div class="stat-box">
+                <h4>$1.2M+</h4>
+                <p style="font-weight: 600; color: var(--color-navy);">Annual Savings</p>
+                <p style="font-size: 0.9rem; margin-top: 10px;">Projected USD savings in transit costs, stimulating local economies.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="container">
+        <h2 class="section-title">Key Benefits for Participants</h2>
+        <div class="grid-row">
+            <div class="card" style="border-bottom-color: var(--color-teal);">
+                <h3>For Service Providers</h3>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li style="margin-bottom: 10px;"><strong>Reduced Transit Costs:</strong> Achieve over 25% savings on international transit.</li>
+                    <li><strong>Improved Performance:</strong> Provide faster and more reliable access, fostering customer loyalty.</li>
+                </ul>
+            </div>
+            <div class="card" style="border-bottom-color: var(--color-blue);">
+                <h3>For Content Providers</h3>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li style="margin-bottom: 10px;"><strong>Enhanced UX:</strong> Lower latency for quicker loading and seamless streaming.</li>
+                    <li><strong>Direct Market Access:</strong> Effectively cater to local audiences without multiple independent deployments.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h2>Join Us in Transforming Connectivity</h2>
+            <p style="color: var(--color-white); max-width: 600px; margin: 0 auto 25px auto;">Supported by APNIC, ISOC, Internet Association of Australia, and the New Zealand Internet Exchange. Join as a peering participant today.</p>
+            <a href="#" class="btn-primary" style="background-color: var(--color-gold); color: var(--color-navy);">Contact the Committee</a>
+            
+            <p style="margin-top: 40px; font-size: 0.8rem;">&copy; 2024 Pacific Islands Internet Exchange Incorporated.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
