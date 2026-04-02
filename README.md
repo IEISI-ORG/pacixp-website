@@ -33,6 +33,15 @@ open alt_index.html
 
 `alt_index.html` reflects the current brand direction and is the file to use for new work.
 
+## Analytics & SEO
+
+| | |
+|---|---|
+| Analytics | Google Analytics 4 via Cloudflare Zaraz (no script tag in HTML — configure in Zaraz dashboard) |
+| Search Console | Google Search Console verified and linked to GA4 |
+| Sitemap | `https://pacixp.net/sitemap.xml` — submitted to GSC |
+| Structured data | `Organization` JSON-LD with NZBN, incorporation number, and founding date |
+
 ## Contributing
 
 See `branding.md` for the design system (color tokens, typography, button/card radius). See `attribution.md` before changing any impact figures — all stats are sourced from ISOC, APNIC, and comparable IXP deployments (KIXP, IXPN).

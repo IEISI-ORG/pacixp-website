@@ -35,6 +35,13 @@ Both pages share the same section structure: hero → about (challenge/solution)
 - Economic savings projection: **$1.2M–$1.8M USD annually**
 - Supporters: APNIC, ISOC, Internet Association of Australia, NZIX
 
+## Analytics & SEO
+
+- **Analytics:** Google Analytics 4, delivered via **Cloudflare Zaraz** — no script tag in HTML. Configure the GA4 Measurement ID in the Zaraz dashboard (Cloudflare → Speed → Zaraz).
+- **Google Search Console:** verified and linked to the GA4 property. Search query data flows into GA4 acquisition reports.
+- **Sitemap:** `https://pacixp.net/sitemap.xml` — submitted to GSC. Update `<lastmod>` when content changes.
+- **SEO:** both HTML files have `<meta name="description">`, canonical URL, Open Graph, Twitter Card, and `Organization` JSON-LD with NZBN and incorporation number.
+
 ## No Build Process
 
 Open any `.html` file directly in a browser to preview. There is no compilation, bundling, linting, or test suite.
