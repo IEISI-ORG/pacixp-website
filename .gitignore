@@ -1,0 +1,23 @@
+# Private images (signatures, personal documents)
+images/*_signature.png
+images/*_private.*
+
+# Secrets & credentials
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+secrets/
+credentials/
+
+# OS & editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.bak
