@@ -39,7 +39,7 @@ open alt_index.html
 |---|---|
 | Analytics | Google Analytics 4 via Cloudflare Zaraz (no script tag in HTML — configure in Zaraz dashboard) |
 | Search Console | Google Search Console verified and linked to GA4 |
-| Sitemap | `https://pacixp.net/sitemap.xml` — submitted to GSC |
+| Sitemap | `https://www.pacixp.net/sitemap.xml` — submitted to GSC |
 | Structured data | `Organization` JSON-LD with NZBN, incorporation number, and founding date |
 
 ## Contributing
