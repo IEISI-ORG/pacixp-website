@@ -45,6 +45,19 @@ Source: Google Fonts (`https://fonts.googleapis.com/css2?family=Montserrat:wght@
 
 **Swoosh wave** — the bottom of the hero section in `alt_index.html` uses a layered SVG wave transitioning through four colors: gold (`#FFCE60` at 0.8 opacity) → ocean blue (`#0073B1` at 0.9 opacity) → reef teal (`#2BC0B5`) → page background (`#F8F9FA`). This mirrors the wave/arc form in the logo and should be preserved in any redesign.
 
+## Legal Identity
+
+| | |
+|---|---|
+| Registered Name | PACIFIC ISLANDS INTERNET EXCHANGE INCORPORATED |
+| Incorporation Number | 50210954 |
+| NZBN | 9429052168000 |
+| Date of Incorporation | 17 June 2024 |
+| Governing Act | Incorporated Societies Act 2022 (NZ) |
+| Status | Registered |
+
+Use "Pacific Islands Internet Exchange Incorporated" in full legal contexts (footer, documents). Use "PACIXP" in all other communications.
+
 ## Tone & Voice
 
 - Organisation type: non-profit, Pacific-region focus, technical but accessible

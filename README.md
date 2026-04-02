@@ -39,4 +39,14 @@ See `branding.md` for the design system (color tokens, typography, button/card r
 
 ## Legal
 
-© 2024–2026 Pacific Islands Internet Exchange Incorporated. Registered non-profit, New Zealand.
+**Pacific Islands Internet Exchange Incorporated**
+Incorporated in New Zealand under the Incorporated Societies Act 2022.
+
+| | |
+|---|---|
+| Incorporation Number | 50210954 |
+| NZBN | 9429052168000 |
+| Date of Incorporation | 17 June 2024 |
+| Status | Registered |
+
+© 2024–2026 Pacific Islands Internet Exchange Incorporated.
