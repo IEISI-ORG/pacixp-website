@@ -48,35 +48,58 @@
 
     <!-- Analytics: managed via Cloudflare Zaraz (configure GA4 in the Zaraz dashboard) -->
 
+    <!-- Import Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --primary-color: #2b5f2b; /* Dark Green from text */
-            --secondary-color: #ffea5e; /* Yellow from slides */
-            --accent-color: #004b87; /* Deep ocean blue */
-            --text-color: #333;
-            --bg-light: #fafafa;
+            /* Official Brand Palette from branding.md */
+            --color-navy: #0B1829;
+            --color-teal: #2BC0B5;
+            --color-blue: #0073B1;
+            --color-gold: #FFCE60;
+            --color-coral: #FF6B6B;
+            --color-text-main: #333333;
+            --color-white: #FFFFFF;
+            --color-bg-light: #F8F9FA;
+            
+            /* Mapping to functional variables */
+            --primary-color: var(--color-navy);
+            --secondary-color: var(--color-teal);
+            --accent-color: var(--color-blue);
+            --highlight-color: var(--color-gold);
+            
+            /* Fonts */
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+
+            /* Spacing & Borders */
+            --radius-pill: 50px;
+            --radius-card: 12px;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
+            font-family: var(--font-body);
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-light);
+            color: var(--color-text-main);
+            background-color: var(--color-bg-light);
         }
 
         header {
-            background-color: var(--accent-color);
-            color: white;
-            padding: 1rem 0;
+            background-color: var(--color-white);
+            padding: 0.75rem 0;
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .container {
@@ -91,16 +114,10 @@
             align-items: center;
         }
 
-        .logo h1 {
-            font-size: 1.8rem;
-            letter-spacing: 1px;
-            color: var(--secondary-color);
-        }
-
-        .logo p {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .logo img {
+            height: 50px;
+            width: auto;
+            display: block;
         }
 
         nav ul {
@@ -110,162 +127,232 @@
         }
 
         nav ul li a {
-            color: white;
+            color: var(--color-navy);
             text-decoration: none;
-            font-weight: 500;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 0.9rem;
             transition: color 0.3s ease;
         }
 
         nav ul li a:hover {
-            color: var(--secondary-color);
+            color: var(--color-teal);
         }
 
         /* Hero Section */
         #hero {
-            /* Changed to a global digital network/connectivity image with a dark tech overlay */
-            background: linear-gradient(rgba(0, 35, 75, 0.85), rgba(20, 65, 40, 0.85)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            background: linear-gradient(rgba(11, 24, 41, 0.85), rgba(11, 24, 41, 0.9)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
             color: white;
-            padding: 120px 0;
+            padding: 100px 0 0 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
         #hero h2 {
+            font-family: var(--font-heading);
             font-size: 3rem;
             margin-bottom: 20px;
-            color: var(--secondary-color);
+            color: var(--color-white);
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         #hero p {
             font-size: 1.2rem;
             max-width: 800px;
-            margin: 0 auto 30px auto;
+            margin: 0 auto 40px auto;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            color: #E2E8F0;
+        }
+
+        .swoosh-container {
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: translateY(2px);
+        }
+
+        .swoosh-container svg {
+            position: relative;
+            display: block;
+            width: calc(130% + 1.3px);
+            height: 100px;
+            transform: translateX(-15%);
         }
 
         .btn {
             display: inline-block;
-            background-color: var(--secondary-color);
-            color: var(--accent-color);
+            background-color: var(--color-teal);
+            color: var(--color-white);
             padding: 14px 35px;
             text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            border-radius: var(--radius-pill);
             font-size: 1.1rem;
             transition: all 0.3s ease;
             box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            border: none;
+            cursor: pointer;
         }
 
         .btn:hover {
-            background-color: #e6d24c;
+            background-color: var(--color-blue);
             transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+
+        .btn-secondary {
+            background-color: var(--color-gold);
+            color: var(--color-navy);
         }
 
         /* Sections */
         section {
-            padding: 60px 0;
+            padding: 80px 0;
         }
 
         .section-title {
             text-align: center;
-            color: var(--primary-color);
+            font-family: var(--font-heading);
+            color: var(--color-navy);
             font-size: 2.2rem;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
+            position: relative;
         }
 
-        /* Two Column Layout */
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--color-gold);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Grid Layouts */
         .flex-row {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
         .flex-col {
-            flex: 1;
-            min-width: 300px;
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            background: var(--color-white);
+            padding: 40px;
+            border-radius: var(--radius-card);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-bottom: 4px solid var(--color-gold);
         }
 
         .flex-col h3 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
+            font-family: var(--font-heading);
+            color: var(--color-blue);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
         }
 
         /* Stats Section */
         #impact {
-            background-color: var(--secondary-color);
+            background-color: var(--color-white);
         }
 
         .stat-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             text-align: center;
         }
 
         .stat-box {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            border-top: 5px solid var(--primary-color);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .stat-box h4 {
-            font-size: 1.8rem;
-            color: var(--accent-color);
-            margin-bottom: 10px;
-        }
-
-        /* Involvement */
-        #get-involved {
-            background-color: var(--bg-light);
-        }
-
-        .involve-cards {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .involve-card {
-            flex: 1;
-            min-width: 250px;
-            background: white;
-            padding: 25px;
-            border-left: 4px solid var(--primary-color);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            background: var(--color-bg-light);
+            padding: 40px 30px;
+            border-radius: var(--radius-card);
+            border-top: 4px solid var(--color-teal);
             transition: transform 0.3s ease;
         }
 
+        .stat-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-box h4 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--color-blue);
+            margin-bottom: 15px;
+        }
+
+        /* Involvement & Governance */
+        .involve-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .involve-card {
+            background: var(--color-white);
+            padding: 35px;
+            border-radius: var(--radius-card);
+            border-left: 6px solid var(--color-teal);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
         .involve-card:hover {
-            transform: translateY(-5px);
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
         /* Footer */
         footer {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 40px 0;
+            background-color: var(--color-navy);
+            color: var(--color-white);
+            padding: 60px 0 30px;
         }
 
-        footer p {
-            margin-bottom: 10px;
+        footer h3 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--color-gold);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .footer-links a {
+            color: #A0AEC0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-teal);
+        }
+
+        .footer-legal {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            color: #A0AEC0;
         }
 
         @media(max-width: 768px) {
             .navbar {
                 flex-direction: column;
-                text-align: center;
-                gap: 15px;
+                gap: 20px;
             }
             #hero h2 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
         }
     </style>
@@ -276,15 +363,15 @@
     <header>
         <div class="container navbar">
             <div class="logo">
-                <h1>PACIXP</h1>
-                <p>Pacific Islands Internet Exchange Inc.</p>
+                <img src="images/transparent_logo.png" alt="PACIXP Logo">
             </div>
             <nav>
                 <ul>
                     <li><a href="#about">About</a></li>
                     <li><a href="#impact">Impact</a></li>
                     <li><a href="#benefits">Benefits</a></li>
-                    <li><a href="#get-involved">Get Involved</a></li>
+                    <li><a href="#governance">Governance</a></li>
+                    <li><a href="#get-involved">Involvement</a></li>
                 </ul>
             </nav>
         </div>
@@ -292,10 +379,18 @@
 
     <!-- Hero Section -->
     <section id="hero">
-        <div class="container">
+        <div class="container" style="padding-bottom: 40px;">
             <h2>Transforming Internet Connectivity Across the Pacific</h2>
-            <p>Driving digital transformation and economic growth by establishing a continental-scale Internet Exchange. Registered in New Zealand as a non-profit organization promoting digital sovereignty.</p>
-            <a href="#get-involved" class="btn">Join the Initiative</a>
+            <p>Driving digital transformation and economic growth by establishing a continental-scale Internet Exchange. Registered in New Zealand as a non-profit organisation promoting digital sovereignty.</p>
+            <a href="apply.html" class="btn">Join the Initiative</a>
+        </div>
+
+        <div class="swoosh-container">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="#FFCE60" opacity="0.6"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5V0Z" fill="#0073B1" opacity="0.4"></path>
+                <path d="M1200,120H0V80.37c63.74,27.18,131.52,47.88,203.85,41.4,107.82-9.67,196.22-68.42,304-75.11,100.86-6.26,192.41,38.64,291.64,57.14C897.66,122.18,995.15,113,1093,89.92c36.29-8.54,72-19.92,107-32.33Z" fill="#F8F9FA"></path>
+            </svg>
         </div>
     </section>
 
@@ -305,11 +400,13 @@
         <div class="flex-row">
             <div class="flex-col">
                 <h3>The Challenge</h3>
-                <p>Currently, traffic routing among Pacific Island nations is highly inefficient. Neighboring islands often reroute through Australia, Hawaii, or North America. This reliance on distant routing incurs high latencies (180-250ms) and significant transit costs, burdening ISPs and hampering regional digital transformation.</p>
+                <p>Currently, traffic routing among Pacific Island nations is highly inefficient. Neighbouring islands often reroute through Australia, Hawaii, or North America. This reliance on distant routing incurs high latencies (180-250ms) and significant transit costs, burdening ISPs and hampering regional digital transformation.</p>
+                <p style="margin-top: 15px;">Crucially, this vulnerability affects <strong>critical communications</strong> during weather events. Rapid data transmission is vital for early warning systems and disaster response coordination across the Pacific.</p>
             </div>
             <div class="flex-col">
                 <h3>The PACIXP Solution</h3>
-                <p>PACIXP is establishing distributed, industry-standard Internet Exchange Points (IXPs) initially targeting <strong>Samoa and Fiji</strong>. By activating underutilized submarine cable capacity and providing direct peering between networks, we are eliminating unnecessary transit routes and fostering robust local internet ecosystems.</p>
+                <p>PACIXP is establishing distributed, industry-standard Internet Exchange Points (IXPs) initially targeting <strong>Samoa and Fiji</strong>. By activating underutilised submarine cable capacity and providing direct peering between networks, we are eliminating unnecessary transit routes and fostering robust local internet ecosystems.</p>
+                <p style="margin-top: 15px;">Our upcoming <strong>Fiji IXP</strong> deployment specifically aims to resolve domestic routing bottlenecks and provide a resilient hub for regional traffic exchange, supporting the Pacific Island Meteorological Strategy's goals for robust communication systems.</p>
             </div>
         </div>
     </section>
@@ -317,22 +414,51 @@
     <!-- Expected Impact (Stats) -->
     <section id="impact">
         <div class="container">
-            <h2 class="section-title" style="color: var(--primary-color);">Expected Regional Impact</h2>
+            <h2 class="section-title">Expected Regional Impact</h2>
             <div class="stat-grid">
                 <div class="stat-box">
-                    <h4>< 80ms</h4>
+                    <h4>&lt; 80ms</h4>
                     <p><strong>Reduced Round-Trip Times</strong></p>
                     <p>Dropping from current latencies of 180-250ms for a faster, more reliable user experience.</p>
                 </div>
                 <div class="stat-box">
-                    <h4>> 35%</h4>
-                    <p><strong>Traffic Localization</strong></p>
+                    <h4>&gt; 35%</h4>
+                    <p><strong>Traffic Localisation</strong></p>
                     <p>Keeping local traffic local, reducing dependency on overseas routes and enhancing resilience.</p>
                 </div>
                 <div class="stat-box">
                     <h4>$1.2M - $1.8M</h4>
                     <p><strong>Annual Economic Savings</strong></p>
                     <p>Projected USD savings in transit costs, stimulating local economies and technical job creation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Governance & Leadership -->
+    <section id="governance" class="container">
+        <h2 class="section-title">Governance & Transparency</h2>
+        <p style="text-align: center; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">
+            PACIXP is a member-driven, non-profit organisation. While registered in New Zealand, our governance structure is designed to represent and serve the diverse needs of all Pacific nations.
+        </p>
+        <div class="flex-row">
+            <div class="flex-col">
+                <h3>Regional Leadership</h3>
+                <p>Our Board consists of industry veterans and regional experts committed to Pacific digital sovereignty:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li><strong>Christopher Keith Browning</strong> (Society Officer)</li>
+                    <li><strong>Ravnil Rohit Prasad</strong> (Society Officer)</li>
+                    <li><strong>Terence Charles Sweetser</strong> (Society Officer)</li>
+                    <li><strong>Sarai Tevita</strong> (Society Officer)</li>
+                </ul>
+            </div>
+            <div class="flex-col">
+                <h3>Legal & Compliance</h3>
+                <p>We operate with full transparency under the New Zealand Incorporated Societies Act 2022. You can access our founding documents below:</p>
+                <div style="margin-top: 20px;">
+                    <a href="Pacific_IXP_Constitution_(FINAL_-_070624).pdf" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.9rem; margin-bottom: 10px; display: inline-block;">Constitution</a>
+                    <a href="privacy.html" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.9rem; margin-bottom: 10px; display: inline-block;">Privacy Policy</a>
+                    <a href="apply.html" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.9rem; margin-bottom: 10px; display: inline-block;">Membership Application</a>
                 </div>
             </div>
         </div>
@@ -387,12 +513,28 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <h3 style="margin-bottom: 15px; color: var(--secondary-color);">Stay Connected with PACIXP</h3>
-            <p>Your questions and support are vital as we strive to enhance internet connectivity across the Pacific Islands.</p>
-            <p style="margin-top: 25px; font-size: 0.9rem;">&copy; 2024–2026 Pacific Islands Internet Exchange Incorporated. Incorporated in New Zealand under the Incorporated Societies Act 2022. Incorporation No. 50210954 &middot; NZBN 9429052168000</p>
-            <p style="font-size: 0.8rem; margin-top: 5px; color: #ccc;">Supported by APNIC, ISOC, IAA, and NZIX.</p>
+            <h3>Stay Connected with PACIXP</h3>
+            <p style="max-width: 600px; margin: 0 auto 15px auto;">Your questions and support are vital as we strive to enhance internet connectivity across the Pacific Islands.</p>
+            <p style="margin-bottom: 30px;"><strong>Email:</strong> <a href="mailto:info@pacixp.net" style="color: var(--color-gold); text-decoration: none;">info@pacixp.net</a></p>
+            
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#impact">Impact</a>
+                <a href="#governance">Governance</a>
+                <a href="apply.html">Join Us</a>
+                <a href="#">T&Cs</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </div>
+            
+            <div class="footer-legal">
+                <p>&copy; 2024–2026 Pacific Islands Internet Exchange Incorporated. Incorporated in New Zealand under the Incorporated Societies Act 2022.</p>
+                <p style="margin-top: 5px;">Incorporation No. 50210954 &middot; NZBN 9429052168000</p>
+                <p style="margin-top: 15px; font-size: 0.8rem; color: #A0AEC0;">Supported by APNIC, ISOC, IAA, and NZIX.</p>
+            </div>
         </div>
     </footer>
 
 </body>
+</html>
+
 </html>
