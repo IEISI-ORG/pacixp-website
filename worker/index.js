@@ -107,7 +107,7 @@ export default {
         },
         body: JSON.stringify({
           from: 'PACIXP Website <no-reply@pacixp.net>',
-          to: ['terry.sweetser@pacixp.net'],
+          to: ['info@pacixp.net'],
           subject: subject,
           html: htmlBody,
         }),
