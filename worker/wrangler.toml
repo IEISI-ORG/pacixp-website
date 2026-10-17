@@ -2,5 +2,13 @@ name = "pacixp-api"
 main = "index.js"
 compatibility_date = "2026-05-07"
 
+# Keep the workers.dev URL: Wrangler disables it when routes are set unless
+# this is explicit, and older cached pages still post to it.
+workers_dev = true
+
+[[routes]]
+pattern = "api.pacixp.net"
+custom_domain = true
+
 [observability]
 enabled = true
