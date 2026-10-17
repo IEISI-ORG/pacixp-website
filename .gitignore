@@ -12,9 +12,6 @@ images/*_private.*
 secrets/
 credentials/
 
-# worker code
-worker/
-
 # OS & editor noise
 .DS_Store
 Thumbs.db
