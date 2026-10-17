@@ -42,14 +42,22 @@ export default {
         }
       }
 
+      // Escape submitted text before inserting it into the email HTML
+      const escapeHtml = (input) => String(input ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+
       // Generate HTML Email
       const generateHtmlEmail = (title, fields) => {
         const rows = Object.entries(fields)
           .filter(([key]) => key !== 'form-type')
           .map(([key, value]) => `
             <tr>
-              <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: 600; color: #0B1829; width: 150px; text-transform: capitalize;">${key.replace(/-/g, ' ')}</td>
-              <td style="padding: 10px; border-bottom: 1px solid #eee; color: #333;">${value}</td>
+              <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: 600; color: #0B1829; width: 150px; text-transform: capitalize;">${escapeHtml(key.replace(/-/g, ' '))}</td>
+              <td style="padding: 10px; border-bottom: 1px solid #eee; color: #333;">${escapeHtml(value)}</td>
             </tr>
           `).join('');
 
