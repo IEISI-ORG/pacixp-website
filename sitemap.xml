@@ -10,7 +10,7 @@
 
   <!-- Membership Application -->
   <url>
-    <loc>https://www.pacixp.net/apply.html</loc>
+    <loc>https://www.pacixp.net/apply</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -18,7 +18,7 @@
 
   <!-- Contact -->
   <url>
-    <loc>https://www.pacixp.net/contact.html</loc>
+    <loc>https://www.pacixp.net/contact</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -26,7 +26,7 @@
 
   <!-- Privacy Policy -->
   <url>
-    <loc>https://www.pacixp.net/privacy.html</loc>
+    <loc>https://www.pacixp.net/privacy</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
