@@ -17,7 +17,13 @@ export default {
     try {
       const data = await request.json();
       const formType = data['form-type'] || 'membership-application';
-      
+
+      // Collapse line breaks/control characters and cap length for the email subject
+      const cleanSubject = (input) => {
+        const text = String(input ?? '').replace(/[\x00-\x1F\x7F\s]+/g, ' ').trim();
+        return text.length > 100 ? `${text.slice(0, 99)}…` : text;
+      };
+
       // Basic validation
       let requiredFields = [];
       let subject = "";
@@ -25,11 +31,11 @@ export default {
       
       if (formType === 'general-contact') {
         requiredFields = ['name', 'email', 'subject', 'message'];
-        subject = `Contact Inquiry: ${data['subject']}`;
+        subject = `Contact Inquiry: ${cleanSubject(data['subject'])}`;
         title = "General Contact Inquiry";
       } else {
         requiredFields = ['org-name', 'asn', 'contact-name', 'contact-email', 'location'];
-        subject = `Membership Application: ${data['org-name']}`;
+        subject = `Membership Application: ${cleanSubject(data['org-name'])}`;
         title = "New Membership Application";
       }
 
