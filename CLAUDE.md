@@ -14,6 +14,7 @@ This is the static website for **PACIXP** (Pacific Islands Internet Exchange Inc
 - `branding.md` — Full brand guide: logo description, color palette, typography, motifs, and asset inventory
 - `images/transparent_logo.png` — Official logo (1536×1024 RGBA PNG, transparent background). Teal wave/arc icon with orange-gold glow arc, dark navy wordmark. Use on dark/navy backgrounds.
 - `images/cb_signature.png`, `images/ts_signature.png` — Private; gitignored, do not commit
+- `.assetsignore` — `wrangler.jsonc` serves the whole repo root as static assets; this excludes `.git/`, `worker/`, `*.md` and config from the live site. Add any new non-public file type here.
 
 ## Design System (alt_index.html / current brand direction)
 

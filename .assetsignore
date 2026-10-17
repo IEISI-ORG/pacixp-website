@@ -1,0 +1,16 @@
+# Files in the repo root that must not be served by the pacixp-website worker
+# (wrangler.jsonc publishes "." as static assets). gitignore syntax.
+
+# Repo and tooling
+.git/
+.github/
+.claude/
+.gitignore
+.assetsignore
+wrangler.jsonc
+
+# API worker source (deployed separately as pacixp-api)
+worker/
+
+# Internal docs (README, CLAUDE.md, branding, attribution, plans)
+*.md
