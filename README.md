@@ -4,7 +4,7 @@ The static marketing website for **Pacific Islands Internet Exchange Incorporate
 
 ## About PACIXP
 
-Pacific Island nations currently route internet traffic through distant hubs in Australia, Hawaii, or North America — even for communication between neighbouring islands. PACIXP addresses this by establishing distributed IXPs, beginning with **Samoa and Fiji**, to enable direct local peering.
+Pacific Island nations currently route internet traffic through distant hubs in Australia, Japan, or North America — even for communication between neighbouring islands. PACIXP addresses this by supporting industry-standard IXPs across the Pacific to enable direct local peering.
 
 **Projected impact:**
 - Latency: 180–250ms → **< 80ms**

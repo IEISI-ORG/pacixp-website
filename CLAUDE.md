@@ -29,7 +29,8 @@ CSS custom properties defined in `:root`:
 ## Content Structure
 
 Both pages share the same section structure: hero → about (challenge/solution) → impact (stats) → benefits (ISPs + content providers) → get-involved/footer. Key facts to preserve when editing:
-- Initial deployment targets: **Samoa and Fiji**
+- Scope: PACIXP **supports IXPs across the Pacific**; site copy does not name specific target countries
+- Transit hubs named in the "challenge" copy: **Australia, Japan, or North America**
 - Latency goal: **< 80ms** (down from 180–250ms)
 - Traffic localization target: **> 35%**
 - Economic savings projection: **$1.2M–$1.8M USD annually**

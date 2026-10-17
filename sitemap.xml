@@ -3,7 +3,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.pacixp.net/</loc>
-    <lastmod>2026-04-20</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -11,9 +11,17 @@
   <!-- Membership Application -->
   <url>
     <loc>https://www.pacixp.net/apply.html</loc>
-    <lastmod>2026-04-20</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://www.pacixp.net/contact.html</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <!-- Privacy Policy -->
@@ -26,7 +34,7 @@
 
   <!-- Constitution PDF -->
   <url>
-    <loc>https://www.pacixp.net/Pacific_IXP_Constitution_(FINAL_-_070624).pdf</loc>
+    <loc>https://www.pacixp.net/Pacific_IXP_Constitution_%28FINAL_-_070624%29.pdf</loc>
     <lastmod>2024-06-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
