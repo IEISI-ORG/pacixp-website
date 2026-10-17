@@ -48,6 +48,10 @@ Both pages share the same section structure: hero → about (challenge/solution)
 
 Preview with `npx wrangler dev` from the repo root (serves the site as production does). Opening `.html` files directly from disk renders pages, but internal links won't resolve. There is no compilation, bundling, linting, or test suite.
 
+## Form API
+
+`apply.html` and `contact.html` POST JSON to `https://api.pacixp.net`, a custom domain on the separate `pacixp-api` Worker (`worker/`, config `worker/wrangler.toml`). That config sets `workers_dev = true` explicitly — Wrangler otherwise disables the `workers.dev` URL whenever `routes` is set.
+
 ## URLs
 
 The site uses clean URLs: `/apply`, `/contact`, `/privacy` (Workers Assets serves `apply.html` at `/apply` and 307-redirects `/apply.html` there). Canonical tags, `og:url`, the sitemap, and internal links all use the clean form, with internal links root-relative (`href="/apply"`, home is `href="/"`). Do not set `assets.html_handling` to `"none"` — `/` then returns 404 (verified with `wrangler dev`, 2026-10-17).

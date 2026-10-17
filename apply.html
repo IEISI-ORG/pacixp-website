@@ -266,8 +266,8 @@
             const data = Object.fromEntries(formData.entries());
 
             try {
-                // Newly deployed Cloudflare Worker URL
-                const response = await fetch('https://pacixp-api.tcsweetser.workers.dev', {
+                // pacixp-api Worker (custom domain)
+                const response = await fetch('https://api.pacixp.net', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
