@@ -139,7 +139,9 @@ export default {
         },
       });
     } catch (err) {
-      return new Response(JSON.stringify({ error: err.message }), {
+      // Log details for observability; don't expose internals to the client
+      console.error("Unhandled error:", err);
+      return new Response(JSON.stringify({ error: "Internal server error" }), {
         status: 500,
         headers: {
           "Content-Type": "application/json",
