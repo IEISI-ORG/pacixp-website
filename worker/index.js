@@ -28,7 +28,7 @@ export default {
         subject = `Contact Inquiry: ${data['subject']}`;
         title = "General Contact Inquiry";
       } else {
-        requiredFields = ['org-name', 'asn', 'contact-name', 'contact-email'];
+        requiredFields = ['org-name', 'asn', 'contact-name', 'contact-email', 'location'];
         subject = `Membership Application: ${data['org-name']}`;
         title = "New Membership Application";
       }
