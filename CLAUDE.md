@@ -50,7 +50,7 @@ Preview with `npx wrangler dev` from the repo root (serves the site as productio
 
 ## Form API
 
-`apply.html` and `contact.html` POST JSON to `https://api.pacixp.net`, a custom domain on the separate `pacixp-api` Worker (`worker/`, config `worker/wrangler.toml`). That config sets `workers_dev = true` explicitly — Wrangler otherwise disables the `workers.dev` URL whenever `routes` is set.
+`apply.html` and `contact.html` POST JSON to `https://api.pacixp.net`, a custom domain on the separate `pacixp-api` Worker (`worker/`, config `worker/wrangler.toml`). That config sets `workers_dev = false` and `preview_urls = false` so the API has one hostname, and binds `FORM_LIMITER` (Workers Rate Limiting, 5 POSTs/min per IP). The Worker accepts only requests from `https://www.pacixp.net` or `https://pacixp.net`, and only the fields listed in `FORMS` in `worker/index.js` — when adding a form field, add it there and keep its `max` in step with the input's `maxlength`.
 
 ## URLs
 

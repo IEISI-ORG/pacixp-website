@@ -165,27 +165,27 @@
             
             <div class="form-group">
                 <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" required maxlength="200">
             </div>
 
             <div class="form-group">
                 <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" required maxlength="254">
             </div>
 
             <div class="form-group">
                 <label for="organisation">Organisation (Optional)</label>
-                <input type="text" id="organisation" name="organisation">
+                <input type="text" id="organisation" name="organisation" maxlength="200">
             </div>
 
             <div class="form-group">
                 <label for="subject">Subject</label>
-                <input type="text" id="subject" name="subject" required>
+                <input type="text" id="subject" name="subject" required maxlength="200">
             </div>
 
             <div class="form-group">
                 <label for="message">Message</label>
-                <textarea id="message" name="message" rows="6" required></textarea>
+                <textarea id="message" name="message" rows="6" required maxlength="5000"></textarea>
             </div>
 
             <button type="submit" id="submit-btn" class="btn-submit">Send Message</button>

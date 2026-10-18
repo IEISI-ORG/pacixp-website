@@ -166,27 +166,27 @@
             <input type="hidden" name="form-type" value="membership-application">
             <div class="form-group">
                 <label for="org-name">Organisation Name</label>
-                <input type="text" id="org-name" name="org-name" required placeholder="e.g. Pacific Telecom Ltd">
+                <input type="text" id="org-name" name="org-name" required maxlength="200" placeholder="e.g. Pacific Telecom Ltd">
             </div>
 
             <div class="form-group">
                 <label for="asn">Autonomous System Number (ASN)</label>
-                <input type="text" id="asn" name="asn" required placeholder="e.g. AS12345">
+                <input type="text" id="asn" name="asn" required maxlength="16" pattern="([Aa][Ss])?\s?[0-9]{1,10}" title="AS number, e.g. AS12345" placeholder="e.g. AS12345">
             </div>
 
             <div class="form-group">
                 <label for="peeringdb">PeeringDB Link (optional)</label>
-                <input type="url" id="peeringdb" name="peeringdb" placeholder="e.g. https://www.peeringdb.com/net/12345">
+                <input type="url" id="peeringdb" name="peeringdb" maxlength="300" placeholder="e.g. https://www.peeringdb.com/net/12345">
             </div>
 
             <div class="form-group">
                 <label for="contact-name">Technical Contact Name</label>
-                <input type="text" id="contact-name" name="contact-name" required>
+                <input type="text" id="contact-name" name="contact-name" required maxlength="200">
             </div>
 
             <div class="form-group">
                 <label for="contact-email">Technical Contact Email</label>
-                <input type="email" id="contact-email" name="contact-email" required>
+                <input type="email" id="contact-email" name="contact-email" required maxlength="254">
             </div>
 
             <div class="form-group">
@@ -228,7 +228,7 @@
 
             <div class="form-group">
                 <label for="notes">Additional Technical Notes</label>
-                <textarea id="notes" name="notes" rows="4" placeholder="e.g. Required port speed, existing cross-connects..."></textarea>
+                <textarea id="notes" name="notes" rows="4" maxlength="5000" placeholder="e.g. Required port speed, existing cross-connects..."></textarea>
             </div>
 
             <p style="font-size: 0.85rem; color: #666; margin-bottom: 20px;">By submitting this application, you agree to our Terms & Conditions and Privacy Policy.</p>
