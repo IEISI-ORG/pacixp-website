@@ -13,6 +13,7 @@ This is the static website for **PACIXP** (Pacific Islands Internet Exchange Inc
 - `attribution.md` — Methodology behind the projected economic and performance impact figures (sources: ISOC, APNIC, KIXP/IXPN case studies)
 - `branding.md` — Full brand guide: logo description, color palette, typography, motifs, and asset inventory
 - `images/transparent_logo.png` — Official logo (1536×1024 RGBA PNG, transparent background). Teal wave/arc icon with orange-gold glow arc, dark navy wordmark. Use on dark/navy backgrounds.
+- `favicon.ico` (16/32/48 px), `apple-touch-icon.png` (180 px) — the wave mark from the logo on a navy tile, at the root so the default `/favicon.ico` request also finds it. Strokes are thickened at 16/32 px to stay legible. Every page links both in `<head>`.
 - `images/cb_signature.png`, `images/ts_signature.png` — Private; gitignored, do not commit
 - `.assetsignore` — `wrangler.jsonc` serves the whole repo root as static assets; this excludes `.git/`, `worker/`, `*.md` and config from the live site. Add any new non-public file type here.
 
