@@ -65,6 +65,7 @@
             /* Official Brand Palette from branding.md */
             --color-navy: #0B1829;
             --color-teal: #2BC0B5;
+            --color-teal-dark: #1C7D76; /* teal for text on light backgrounds (4.9:1) */
             --color-blue: #0073B1;
             --color-gold: #FFCE60;
             --color-coral: #FF6B6B;
@@ -143,7 +144,7 @@
         }
 
         nav ul li a:hover {
-            color: var(--color-teal);
+            color: var(--color-teal-dark);
         }
 
         /* Hero Section */
@@ -190,7 +191,7 @@
         .btn {
             display: inline-block;
             background-color: var(--color-teal);
-            color: var(--color-white);
+            color: var(--color-navy);
             padding: 14px 35px;
             text-decoration: none;
             font-family: var(--font-heading);
@@ -205,6 +206,7 @@
 
         .btn:hover {
             background-color: var(--color-blue);
+            color: var(--color-white);
             transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(0,0,0,0.3);
         }
@@ -241,7 +243,7 @@
         /* Grid Layouts */
         .flex-row {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
             gap: 30px;
         }
 
@@ -267,7 +269,7 @@
 
         .stat-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
             gap: 25px;
             text-align: center;
         }
@@ -284,7 +286,7 @@
             transform: translateY(-10px);
         }
 
-        .stat-box h4 {
+        .stat-box h3 {
             font-family: var(--font-heading);
             font-size: 2.5rem;
             color: var(--color-blue);
@@ -294,7 +296,7 @@
         /* Involvement & Governance */
         .involve-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
             gap: 25px;
         }
 
@@ -357,6 +359,11 @@
             .navbar {
                 flex-direction: column;
                 gap: 20px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem 1.25rem;
             }
             #hero h1 {
                 font-size: 2.2rem;
@@ -425,17 +432,17 @@
             <h2 class="section-title">Expected Regional Impact</h2>
             <div class="stat-grid">
                 <div class="stat-box">
-                    <h4>&lt; 80ms</h4>
+                    <h3>&lt; 80ms</h3>
                     <p><strong>Reduced Round-Trip Times</strong></p>
                     <p>Dropping from current latencies of 180-250ms for a faster, more reliable user experience.</p>
                 </div>
                 <div class="stat-box">
-                    <h4>&gt; 35%</h4>
+                    <h3>&gt; 35%</h3>
                     <p><strong>Traffic Localisation</strong></p>
                     <p>Keeping local traffic local, reducing dependency on overseas routes and enhancing resilience.</p>
                 </div>
                 <div class="stat-box">
-                    <h4>$1.2M - $1.8M</h4>
+                    <h3>$1.2M - $1.8M</h3>
                     <p><strong>Annual Economic Savings</strong></p>
                     <p>Projected USD savings in transit costs, stimulating local economies and technical job creation.</p>
                 </div>

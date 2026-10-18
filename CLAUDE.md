@@ -21,7 +21,7 @@ This is the static website for **PACIXP** (Pacific Islands Internet Exchange Inc
 
 CSS custom properties defined in `:root`:
 - `--color-navy: #0B1829` — primary dark background
-- `--color-teal: #2BC0B5` — accent/CTA
+- `--color-teal: #2BC0B5` — accent/CTA. Fails contrast with white (2.25:1): teal buttons use navy text (7.9:1, white on blue on hover), and teal *text* on light backgrounds uses `--color-teal-dark: #1C7D76` (4.9:1)
 - `--color-blue: #0073B1` — headings
 - `--color-gold: #FFCE60` — island accent, footer CTA
 - `--color-coral: #FF6B6B` — defined but not yet used

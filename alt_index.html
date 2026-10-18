@@ -61,6 +61,7 @@
             /* Brand Colors */
             --color-navy: #0B1829;
             --color-teal: #2BC0B5;
+            --color-teal-dark: #1C7D76; /* teal for text on light backgrounds (4.9:1) */
             --color-blue: #0073B1;
             --color-gold: #FFCE60;
             --color-coral: #FF6B6B;
@@ -105,7 +106,7 @@
         }
 
         h3 {
-            color: var(--color-teal);
+            color: var(--color-teal-dark);
             font-weight: 600;
             margin-bottom: 15px;
         }
@@ -161,14 +162,14 @@
 
         nav ul li a:hover {
             border-bottom: 2px solid var(--color-teal);
-            color: var(--color-teal);
+            color: var(--color-teal-dark);
         }
 
         /* Buttons */
         .btn-primary {
             display: inline-block;
             background-color: var(--color-teal);
-            color: var(--color-white);
+            color: var(--color-navy);
             border-radius: var(--radius-button);
             padding: 12px 28px;
             text-decoration: none;
@@ -236,7 +237,7 @@
         /* Layout Grids & Cards */
         .grid-row {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
             gap: 30px;
         }
 
@@ -269,7 +270,7 @@
             background-color: var(--color-teal);
         }
 
-        .stat-box h4 {
+        .stat-box h3 {
             font-size: 2rem;
             color: var(--color-blue);
             font-family: var(--font-heading);
@@ -325,6 +326,8 @@
         </div>
     </header>
 
+    <main>
+
     <!-- Hero Section -->
     <section id="hero">
         <div class="container" style="padding-bottom: 60px;">
@@ -368,17 +371,17 @@
         <h2 class="section-title">Expected Regional Impact</h2>
         <div class="grid-row">
             <div class="stat-box">
-                <h4>< 80ms</h4>
+                <h3>&lt; 80ms</h3>
                 <p style="font-weight: 600; color: var(--color-navy);">Reduced Latency</p>
                 <p style="font-size: 0.9rem; margin-top: 10px;">Dropping from current latencies of 180-250ms for a faster user experience.</p>
             </div>
             <div class="stat-box">
-                <h4>> 35%</h4>
+                <h3>&gt; 35%</h3>
                 <p style="font-weight: 600; color: var(--color-navy);">Traffic Localization</p>
                 <p style="font-size: 0.9rem; margin-top: 10px;">Keeping local traffic local, enhancing internet resilience in the Pacific.</p>
             </div>
             <div class="stat-box">
-                <h4>$1.2M+</h4>
+                <h3>$1.2M+</h3>
                 <p style="font-weight: 600; color: var(--color-navy);">Annual Savings</p>
                 <p style="font-size: 0.9rem; margin-top: 10px;">Projected USD savings in transit costs, stimulating local economies.</p>
             </div>
@@ -405,6 +408,8 @@
             </div>
         </div>
     </section>
+
+    </main>
 
     <!-- Footer -->
     <footer>

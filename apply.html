@@ -115,11 +115,12 @@
             border-radius: 6px;
             font-family: var(--font-body);
             font-size: 1rem;
+            box-sizing: border-box;
         }
 
         .btn-submit {
             background-color: var(--color-teal);
-            color: var(--color-white);
+            color: var(--color-navy);
             padding: 15px 30px;
             border: none;
             border-radius: 50px;
@@ -133,6 +134,17 @@
 
         .btn-submit:hover {
             background-color: var(--color-blue);
+            color: var(--color-white);
+        }
+
+        .btn-submit:disabled {
+            cursor: wait;
+            opacity: 0.8;
+        }
+
+        /* The status message takes focus programmatically, not from the keyboard */
+        #form-status:focus {
+            outline: none;
         }
 
         footer {
@@ -141,6 +153,13 @@
             text-align: center;
             padding: 40px 0;
             font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .content {
+                box-sizing: border-box;
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
@@ -162,7 +181,7 @@
         
         <p style="margin-bottom: 30px;">Please complete the form below to begin your application. Our technical committee will review your submission and contact you regarding the next steps for connection.</p>
 
-        <div id="form-status" style="display: none; padding: 20px; border-radius: 8px; margin-bottom: 30px; font-weight: 600;"></div>
+        <div id="form-status" tabindex="-1" style="display: none; padding: 20px; border-radius: 8px; margin-bottom: 30px; font-weight: 600;"></div>
 
         <form id="membership-form">
             <input type="hidden" name="form-type" value="membership-application">
@@ -263,6 +282,7 @@
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sending...';
             status.style.display = 'none';
+            status.textContent = '';
 
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
@@ -285,7 +305,7 @@
                     status.style.display = 'block';
                     form.reset();
                     form.style.display = 'none';
-                    window.scrollTo(0, 0);
+                    status.focus();
                 } else {
                     throw new Error('Failed to submit');
                 }
@@ -295,6 +315,7 @@
                 status.style.border = '1px solid #f5c6cb';
                 status.textContent = 'Oops! Something went wrong. Please try again later or contact info@pacixp.net directly.';
                 status.style.display = 'block';
+                status.focus();
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Submit Application';
             }

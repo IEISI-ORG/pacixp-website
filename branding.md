@@ -16,7 +16,8 @@ The logo features a stylised teal wave/arc (evoking the letter C and ocean motio
 | Token | Hex | Use |
 |---|---|---|
 | `--color-navy` | `#0B1829` | Primary dark background, body copy inverse |
-| `--color-teal` | `#2BC0B5` | Primary accent, CTA buttons, h3 headings |
+| `--color-teal` | `#2BC0B5` | Primary accent, CTA button backgrounds (with navy text), borders, accents on navy |
+| `--color-teal-dark` | `#1C7D76` | Teal text on white or light backgrounds (h3 headings, link hover) |
 | `--color-blue` | `#0073B1` | Section headings (h2), stat numbers |
 | `--color-gold` | `#FFCE60` | Island accent, footer CTA button, logo glow |
 | `--color-coral` | `#FF6B6B` | Reserved — defined but not yet used |
