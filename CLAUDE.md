@@ -39,7 +39,8 @@ Both pages share the same section structure: hero → about (challenge/solution)
 
 ## Analytics & SEO
 
-- **Analytics:** Google Analytics 4, delivered via **Cloudflare Zaraz** — no script tag in HTML. Configure the GA4 Measurement ID in the Zaraz dashboard (Cloudflare → Speed → Zaraz).
+- **Analytics:** Google Analytics 4, delivered via **Cloudflare Zaraz** — no script tag in HTML. Configure the GA4 Measurement ID in the Zaraz dashboard (Cloudflare → Speed → Zaraz). Cloudflare injects Zaraz and the Web Analytics beacon only into responses to `Accept: text/html` requests, so plain `curl` output never shows them — check with a browser or `curl -H 'Accept: text/html'`.
+- **Security headers:** `_headers` (Workers Static Assets; not served itself) sets CSP, `nosniff`, `X-Frame-Options`, Referrer-Policy and Permissions-Policy on every asset. The CSP allows Google Fonts, the Unsplash hero image, `api.pacixp.net`, and the GA4/Cloudflare Insights hosts Zaraz uses. Adding any new external script, font, image or fetch target means adding its host to the CSP.
 - **Google Search Console:** verified and linked to the GA4 property. Search query data flows into GA4 acquisition reports.
 - **Sitemap:** `https://www.pacixp.net/sitemap.xml` — submitted to GSC. Update `<lastmod>` when content changes.
 - **SEO:** both HTML files have `<meta name="description">`, canonical URL, Open Graph, Twitter Card, and `Organization` JSON-LD with NZBN and incorporation number.

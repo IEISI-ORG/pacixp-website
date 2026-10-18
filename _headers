@@ -1,0 +1,20 @@
+# Response headers for every static asset (Workers Static Assets reads this
+# file and does not serve it). Each line must stay under 2,000 characters.
+#
+# CSP notes:
+# - script-src needs 'unsafe-inline': the form handlers are inline, and
+#   Cloudflare injects Zaraz as an inline script into HTML requested with
+#   Accept: text/html. A static site can't issue per-request nonces.
+# - Zaraz's GA4 tool loads gtag.js and sends hits from the browser, so the
+#   Google hosts follow Google's GA4 CSP guidance. cloudflareinsights is the
+#   Web Analytics beacon, also injected by Cloudflare.
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://*.googletagmanager.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://images.unsplash.com https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://api.pacixp.net https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+
+# Chrome's built-in PDF viewer can fail to render under a page CSP
+/*.pdf
+  ! Content-Security-Policy
