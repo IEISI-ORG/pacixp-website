@@ -102,6 +102,74 @@
             text-decoration: none;
             font-weight: 600;
         }
+        .table-wrap {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        th, td {
+            text-align: left;
+            vertical-align: top;
+            padding: 10px 12px;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        th {
+            font-family: var(--font-heading);
+            color: var(--color-navy);
+            background-color: var(--color-bg-light);
+        }
+
+        code {
+            font-size: 0.85em;
+            overflow-wrap: anywhere;
+        }
+
+        @media (max-width: 600px) {
+            .content {
+                box-sizing: border-box;
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            /* Stack the cookie table into one labelled card per row */
+            thead {
+                display: none;
+            }
+
+            tr, td {
+                display: block;
+            }
+
+            tr {
+                padding: 8px 0;
+                border-bottom: 1px solid #E2E8F0;
+            }
+
+            td {
+                border-bottom: none;
+                padding: 4px 0;
+            }
+
+            td::before {
+                content: attr(data-label);
+                display: block;
+                font-family: var(--font-heading);
+                font-weight: 600;
+                font-size: 0.8rem;
+                color: var(--color-navy);
+            }
+        }
     </style>
 </head>
 <body>
@@ -118,43 +186,80 @@
 
     <main class="container content">
         <h1>Privacy Policy</h1>
-        <p><strong>Effective Date:</strong> 20 April 2026</p>
-        
+        <p><strong>Effective Date:</strong> 18 October 2026</p>
+
         <p>Pacific Islands Internet Exchange Incorporated ("PACIXP", "we", "us", or "our") is committed to protecting your privacy. This policy outlines how we collect, use, and safeguard personal and technical information in accordance with the New Zealand Privacy Act 2020.</p>
 
         <h2>1. Information We Collect</h2>
         <p>We may collect information in the following ways:</p>
         <ul>
-            <li><strong>Membership Data:</strong> Information provided during the application process, including organisation name, ASN, and contact details of technical and administrative staff.</li>
-            <li><strong>Technical Data:</strong> Information related to network peering, traffic statistics (aggregated), and connection metadata required for the operation of the IXP.</li>
-            <li><strong>Inquiries:</strong> Information provided when you contact us for support or information.</li>
+            <li><strong>Membership Applications:</strong> organisation name, AS number, PeeringDB link, the name and email address of a contact person, location, peering policy, and any notes you add.</li>
+            <li><strong>Enquiries:</strong> your name, email address, organisation (optional), subject and message when you use our contact form or email us.</li>
+            <li><strong>Technical Data:</strong> information related to network peering, traffic statistics (aggregated), and connection metadata required for the operation of the IXP.</li>
+            <li><strong>Website Visits:</strong> technical and usage information described in section 2.</li>
         </ul>
 
-        <h2>2. How We Use Your Information</h2>
+        <h2>2. Website, Cookies and Analytics</h2>
+        <p><strong>Hosting.</strong> Our website and form service run on Cloudflare. As with any website, Cloudflare processes your IP address and browser details to deliver pages and to protect the site from attacks.</p>
+        <p><strong>Form submissions.</strong> When you submit a form, its contents are sent to our email inbox. Our form service also logs the IP address, approximate location and browser type of each submission, which we use to detect and block abuse. These logs do not contain what you wrote in the form, and they are deleted automatically within 7 days.</p>
+        <p><strong>Analytics.</strong> We use Google Analytics, delivered through Cloudflare Zaraz, to understand how the site is used: which pages are visited, how visitors arrived, and their device type, browser and approximate location. We also use Cloudflare Web Analytics, which counts page views without cookies. We use this information in aggregate only and do not use it to identify you or for advertising.</p>
+        <p>The analytics service sets the following cookies on pacixp.net:</p>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Cookie</th><th>Set by</th><th>Purpose</th><th>Lasts</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td data-label="Cookie"><code>_ga</code>, <code>_ga_YC6ZNTK5JG</code></td><td data-label="Set by">Google Analytics</td><td data-label="Purpose">Tell visits from different browsers apart and group page views into visits</td><td data-label="Lasts">About 13 months</td></tr>
+                    <tr><td data-label="Cookie"><code>cf_zaraz_client</code>, <code>cfz_zaraz-analytics</code>, <code>cfz_google-analytics_v4</code></td><td data-label="Set by">Cloudflare Zaraz</td><td data-label="Purpose">Run the analytics tool and remember its state between pages</td><td data-label="Lasts">1 year</td></tr>
+                    <tr><td data-label="Cookie"><code>cfzs_google-analytics_v4</code></td><td data-label="Set by">Cloudflare Zaraz</td><td data-label="Purpose">Track the current visit</td><td data-label="Lasts">Until you close your browser</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p>Google Analytics may also store a small item in your browser's local storage. You can block or delete cookies in your browser settings; the website and its forms work without them.</p>
+        <p><strong>Fonts and images.</strong> Our pages load fonts from Google Fonts, and the home page loads a photo from Unsplash. To fetch them, your browser connects to those services, which receive your IP address and browser details.</p>
+
+        <h2>3. How We Use Your Information</h2>
         <p>We use the collected data to:</p>
         <ul>
+            <li>Respond to enquiries and assess membership applications.</li>
             <li>Facilitate internet exchange services and peering between members.</li>
             <li>Communicate regarding technical maintenance, governance, and regional initiatives.</li>
-            <li>Improve the performance and resilience of the regional network.</li>
+            <li>Improve the performance and resilience of the regional network, and of this website.</li>
             <li>Comply with legal and regulatory obligations as an incorporated society in New Zealand.</li>
         </ul>
 
-        <h2>3. Disclosure of Information</h2>
+        <h2>4. Disclosure of Information</h2>
         <p>We do not sell or rent personal information. Information may be shared with:</p>
         <ul>
             <li>Other members (only as necessary for peering coordination, such as PeeringDB updates).</li>
-            <li>Service providers who assist in our technical operations (under strict confidentiality).</li>
+            <li>Service providers who hold or process information on our behalf (listed below).</li>
             <li>Legal authorities if required by New Zealand law.</li>
         </ul>
+        <p>Our service providers are:</p>
+        <ul>
+            <li><strong>Cloudflare</strong> — website hosting, security, form processing and analytics delivery.</li>
+            <li><strong>Resend</strong> — delivers form submissions to our inbox.</li>
+            <li><strong>Google</strong> — our email (Google Workspace), Google Analytics and Google Fonts.</li>
+            <li><strong>Unsplash</strong> — hosts the photo on our home page.</li>
+        </ul>
+        <p>These providers are based in the United States and may store or process information outside New Zealand. They act on our behalf and under their own privacy and security commitments.</p>
 
-        <h2>4. Data Sovereignty & Security</h2>
-        <p>As a promoter of digital sovereignty, we take security seriously. We implement industry-standard technical and organisational measures to protect your data from unauthorised access, loss, or misuse.</p>
+        <h2>5. How Long We Keep Information</h2>
+        <ul>
+            <li><strong>Enquiries and applications:</strong> kept in our email only as long as we need them to respond, to assess and administer membership, and to keep the records an incorporated society must keep.</li>
+            <li><strong>Form service logs:</strong> deleted automatically within 7 days.</li>
+            <li><strong>Analytics:</strong> Google keeps analytics data for the period set in our account, which is at most 14 months. Cookies last for the periods listed in section 2.</li>
+        </ul>
 
-        <h2>5. Your Rights</h2>
-        <p>Under the Privacy Act 2020, you have the right to access any personal information we hold about you and request corrections. To exercise these rights, please contact us at info@pacixp.net.</p>
+        <h2>6. Data Sovereignty & Security</h2>
+        <p>As a promoter of digital sovereignty, we take security seriously. We implement industry-standard technical and organisational measures to protect your data from unauthorised access, loss, or misuse. Our website and forms are served only over encrypted (HTTPS) connections.</p>
 
-        <h2>6. Changes to This Policy</h2>
-        <p>We may update this policy from time to time. Significant changes will be communicated to all active members via their registered contact email.</p>
+        <h2>7. Your Rights</h2>
+        <p>Under the Privacy Act 2020, you have the right to access any personal information we hold about you and request corrections. To exercise these rights, or to contact our privacy officer, please email info@pacixp.net. If you are not satisfied with our response, you can complain to the Office of the Privacy Commissioner at privacy.org.nz.</p>
+
+        <h2>8. Changes to This Policy</h2>
+        <p>We may update this policy from time to time. The effective date at the top of this page shows when it last changed. Significant changes will be communicated to all active members via their registered contact email.</p>
     </main>
 
     <footer>
