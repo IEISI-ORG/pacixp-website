@@ -14,3 +14,12 @@ worker/
 
 # Internal docs (README, CLAUDE.md, branding, attribution, plans)
 *.md
+
+# Private or machine-local files. Wrangler does not read .gitignore, so a
+# local `wrangler deploy` would otherwise upload them.
+images/*_signature.png
+images/*_private.*
+.wrangler/
+node_modules/
+.dev.vars*
+.env*
